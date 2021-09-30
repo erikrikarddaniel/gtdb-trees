@@ -31,6 +31,8 @@ workflow like this:
     rid of anything preciding the actual name in the leaf labels.
 
 11. Check for higher ranked leaf labels, e.g. "o__" in leaf nodes, and delete.
+    Search, delete one, search again, repeat until the search gives no *leaf*
+    nodes.
 
 11. Save by exporting to Newick format. Use `.newick` as suffix and name the
     file e.g. `ar122_r95_family.newick`.
