@@ -5,6 +5,8 @@ chdir $ROOT/data
 screen -t data
 chdir $ROOT/scripts
 screen -t scripts
+chdir $ROOT/trees
+screen -t trees
 chdir $ROOT
 screen -t rstudio
 screen -t man
