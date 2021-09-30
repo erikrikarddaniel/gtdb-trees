@@ -1,0 +1,54 @@
+---
+title: "__TITLE__"
+author: "daniel.lundin@lnu.se"
+date: "`r format(Sys.time(), '%Y-%m-%d')`"
+output:
+  html_document:
+    toc: yes
+    toc_float:
+      collapse: no
+    fig_caption: yes
+    code_folding: hide
+  pdf_document:
+    fig_caption: yes
+    fig_height: 9
+    fig_width: 8
+    number_sections: yes
+    toc: yes
+---
+
+```{r setup, echo=F, cache = FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.path='figures/', cache = TRUE)
+ggplot2::theme_set(ggplot2::theme_bw())
+```
+
+```{r libraries, message = FALSE, cache = FALSE, include = FALSE}
+library(readr)
+library(feather)
+library(data.table)
+library(dtplyr)
+library(dplyr, warn.conflicts = FALSE)
+library(tidyr)
+library(purrr)
+library(stringr)
+library(ggplot2)
+library(kfigr)
+library(knitr)
+library(DT)
+```
+
+```{r constants}
+```
+
+```{r read-data}
+```
+
+# Introduction
+
+# Materials and Methods
+
+# Results
+
+# Discussion
+
+# References
