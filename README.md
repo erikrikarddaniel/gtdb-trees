@@ -12,6 +12,11 @@ memory.
 
 Contains GTDB files plus Makefile(s) that make it easier to collect new data.
 
+Data that can be downloaded from GTDB is not put in the Git repository, but
+downloaded with `make` targets. At the moment this means all files except the
+`Makefile` is kept from the repository.
+
 ## `scripts`
 
-Is for scripts...
+Scripts have paths that are relative to the root directory of the project, i.e.
+the directory where this file is found.
