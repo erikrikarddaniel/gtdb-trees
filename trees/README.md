@@ -33,11 +33,14 @@ workflow like this:
     Search, delete one, search again, repeat until the search gives no *leaf*
     nodes.
 
-11. Save to the trees directory with the proper release subdirectory, by
+12. Remove bootstrap values, first by replacing "^[0-9]+$" with space and then
+    "^[0-9]+:" with space, in regex mode.
+
+13. Save to the trees directory with the proper release subdirectory, by
     exporting to Newick format. Use `.newick` as suffix and name the file e.g.
     `ar122_r95_family.newick`.
 
-12. Remove all rank prefixes (".*[a-z]__") and save as a separate file with a
+14. Remove all rank prefixes (".*[a-z]__") and save as a separate file with a
     name like `ar122_r95_family_noprefix.newick`.
 
 Make sure you start each rank's tree with the full tree, otherwise upper ranks
