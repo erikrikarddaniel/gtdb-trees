@@ -8,8 +8,7 @@ workflow like this:
 2. Select all nodes for the taxon you're subsetting for by searching for its
    prefix, e.g. `f__`.
 
-3. Select the "induced subnetwork" from Dendroscope's "Select/Advanced
-   selection" menu.
+3. Select the "subnetwork" from Dendroscope's "Select/Advanced selection" menu.
 
 4. Invert the select ("Select/Invert Selection").
 
@@ -34,8 +33,9 @@ workflow like this:
     Search, delete one, search again, repeat until the search gives no *leaf*
     nodes.
 
-11. Save by exporting to Newick format. Use `.newick` as suffix and name the
-    file e.g. `ar122_r95_family.newick`.
+11. Save to the trees directory with the proper release subdirectory, by
+    exporting to Newick format. Use `.newick` as suffix and name the file e.g.
+    `ar122_r95_family.newick`.
 
 12. Remove all rank prefixes (".*[a-z]__") and save as a separate file with a
     name like `ar122_r95_family_noprefix.newick`.
