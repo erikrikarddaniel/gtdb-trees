@@ -34,7 +34,7 @@ workflow like this:
     nodes.
 
 12. Remove bootstrap values, first by replacing "^[0-9]+$" with space and then
-    "^[0-9]+:" with space, in regex mode.
+    "^[0-9]+:" with space, in regex mode ("^[0-9]+.[0-9]:" for bacteria trees).
 
 13. Save to the trees directory with the proper release subdirectory, by
     exporting to Newick format. Use `.newick` as suffix and name the file e.g.
