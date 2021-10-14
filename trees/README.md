@@ -16,25 +16,25 @@ workflow like this:
 
 6. Invert the selection and delete selected taxa (<ctrl><backspace>).
 
-7. Select, and remove, any remaining lower taxa by searching for "RS_", "GB_"
-   and e.g. ":g__".
+7. Select, and remove, any remaining lower taxa by searching for "RS_", "GB_",
+   ":UBA[0-9]" and e.g. ":g__".
 
-8. Find leaf labels consisting of only numbers ("^[0-9]+$" in regexp mode) and
+8. Find leaf labels consisting of only numbers ("^[0-9.]+$" in regexp mode) and
    delete them. Note that you can't just select all and delete, since that will
    remove interior nodes too, so this is *manual* work.
 
 9. Run replacement -- in *regexp* mode -- with e.g. "; g__.*" to "" to get rid
-   of anything after the focus name in the leaf labels.
+   of anything after the focus name in the labels.
 
 10. Run replacement -- in *regexp* mode -- with "^.*f__" to "f__" to get
-    rid of anything preciding the actual name in the leaf labels.
+    rid of anything precideng the actual name in the labels.
 
 11. Check for higher ranked leaf labels, e.g. "o__" in leaf nodes, and delete.
     Search, delete one, search again, repeat until the search gives no *leaf*
     nodes.
 
-12. Remove bootstrap values, first by replacing "^[0-9]+$" with space and then
-    "^[0-9]+:" with space, in regex mode ("^[0-9]+.[0-9]:" for bacteria trees).
+12. Remove bootstrap values, first by replacing "^[0-9.]+$" with space and then
+    "^[0-9.]+:" with space, in regex mode.
 
 13. Save to the trees directory with the proper release subdirectory, by
     exporting to Newick format. Use `.newick` as suffix and name the file e.g.
