@@ -33,8 +33,8 @@ workflow like this:
     Search, delete one, search again, repeat until the search gives no *leaf*
     nodes.
 
-12. Remove bootstrap values, first by replacing "^[0-9.]+$" with space and then
-    "^[0-9.]+:" with space, in regex mode.
+12. Remove bootstrap values, first by replacing "^[0-9.]+$" and then
+    "^[0-9.]+:" with the empty string, in regex mode.
 
 13. Save to the trees directory with the proper release subdirectory, by
     exporting to Newick format. Use `.newick` as suffix and name the file e.g.
