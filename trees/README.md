@@ -27,7 +27,7 @@ workflow like this:
    of anything after the focus name in the labels.
 
 10. Run replacement -- in *regexp* mode -- with "^.*f__" to "f__" to get
-    rid of anything precideng the actual name in the labels.
+    rid of anything preceding the actual name in the labels.
 
 11. Check for higher ranked leaf labels, e.g. "o__" in leaf nodes, and delete.
     Search, delete one, search again, repeat until the search gives no *leaf*
