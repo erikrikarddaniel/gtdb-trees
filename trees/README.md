@@ -3,9 +3,11 @@
 I subset the GTDB to different taxonomic levels with Dendroscope, with a manual
 workflow like this:
 
-1. Start with the raw original tree
+0. Start with the raw original tree
 
-2. Select all nodes for the taxon you're subsetting for by searching for its
+1. If needed: Subset tree to whichever parts you want
+
+2. Select all nodes for the rank you're subsetting for by searching for its
    prefix, e.g. `f__`.
 
 3. Select the "subnetwork" from Dendroscope's "Select/Advanced selection" menu.
@@ -17,9 +19,10 @@ workflow like this:
 6. Invert the selection and delete selected taxa (<ctrl><backspace>).
 
 7. Select, and remove, any remaining lower taxa by searching for "RS_", "GB_",
-   ":UBA[0-9]" and e.g. ":g__".
+   ":UBA[0-9]" and e.g. ":g__". *Don't* remove leaves with the target rank plus
+   a lower taxon.
 
-8. Find leaf labels consisting of only numbers ("^[0-9.]+$" in regexp mode) and
+8. Find *leaf* labels consisting of only numbers ("^[0-9.]+$" in regexp mode) and
    delete them. Note that you can't just select all and delete, since that will
    remove interior nodes too, so this is *manual* work.
 
