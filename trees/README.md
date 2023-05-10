@@ -20,7 +20,7 @@ workflow like this:
 
 7. Select, and remove, any remaining lower taxa by searching for "RS_", "GB_",
    ":UBA[0-9]" and e.g. ":g__". *Don't* remove leaves with the target rank plus
-   a lower taxon.
+   a lower taxon. (Search for e.g. "^[0-9.]+:g__" in *regexp* mode.)
 
 8. Find *leaf* labels consisting of only numbers ("^[0-9.]+$" in regexp mode) and
    delete them. Note that you can't just select all and delete, since that will
