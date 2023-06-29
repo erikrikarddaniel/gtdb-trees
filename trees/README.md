@@ -82,7 +82,8 @@ workflow like this:
     `ar122_r95_family.newick`.
 
 14. Remove all rank prefixes (".*[a-z]__") and save as a separate file with a
-    name like `ar122_r95_family_noprefix.newick`.
+    name like `ar122_r95_family_noprefix.newick`. (This is much faster with sed
+    from the output in number 13.)
 
 Make sure you start each rank's tree with the full tree, otherwise upper ranks
 might have disappeared.
