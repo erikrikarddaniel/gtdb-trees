@@ -1,5 +1,14 @@
 # Method
 
+Preparations:
+
+Download the tree files and metadata files from GTDB, and create symlinks:
+
+ar53.tree
+ar53.metadata.tsv
+bac120.tree
+bac120.metadata.tsv
+
 I subset the GTDB to different taxonomic levels with Dendroscope, with a manual
 workflow like this:
 
@@ -22,7 +31,7 @@ workflow like this:
 
 7. Invert the selection and delete selected taxa (<ctrl><backspace>).
 
-*It seems like numbers 8, 9 and 12 aren't necessary if you do number 2 above.*
+*It seems like numbers 8, 9 and 12 aren't necessary if you do number 2 above. Only tested on ar53 genera.*
 
 8. Select, and remove, any remaining lower taxa by searching for "RS_", "GB_",
    ":UBA[0-9]" and e.g. ":g__". *Don't* remove leaves with the target rank plus
@@ -32,13 +41,12 @@ workflow like this:
    delete them. Note that you can't just select all and delete, since that will
    remove interior nodes too, so this is *manual* work.
 
-   In R:
+
+   Check, in R:
 
    library(ape)
-   library(tidyverse)
-
-   t <- read.tree('trees/r207/ar53_r207_genus.wip.newick')
-   write.tree(drop.tip(t, t$tip.label[grepl('^[0-9.]+$', t$tip.label)]), 'trees/r207/ar53_r207_genus.wip.newick')
+   read.tree('trees/r207/bac120.genus.wip.updated.newick') -> t
+   t$tip.label[grepl('^[0-9.]+$', t$tip.label)] -> n
 
 9. Alt 2: Export the tree in newick format, with a `.newick` suffix and run
    `make NN.nobsleaves.newick`. Open the resulting file.
@@ -55,6 +63,12 @@ workflow like this:
     not being present in the tree in the first place. If this is important to
     you, you might want to manually replace some leaves in the _raw_ tree or
     the focus tree from step 2 with focus taxa and start from number 3 above.*
+
+    Check, in R:
+
+    library(ape)
+    read.tree('trees/r207/bac120.genus.wip.updated.newick') -> t
+    t$tip.label[grepl('o__', t$tip.label)] -> n
 
 12. Alt 2: Export the tree in newick format, with a `.newick` suffix and run
     `make NN.noo__leaves.newick` or whichever rank you want to remove (WIP:
