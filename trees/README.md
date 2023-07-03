@@ -17,7 +17,7 @@ workflow like this:
 1. If needed: Subset tree to whichever parts you want
 
 2. `make` a copy of the raw tree with singleton entries at your selected rank
-   replaced with the taxon name. E.g.: `make ar53.genus.wip.newick`. Open the
+   replaced with the taxon name. E.g.: `make ar53.family.wip.newick`. Open the
    resulting file in Dendroscope.
 
 3. Select all nodes for the rank you're subsetting for by searching for its
