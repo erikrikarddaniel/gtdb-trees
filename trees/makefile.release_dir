@@ -1,0 +1,21 @@
+%.nobsleaves.newick: %.newick
+	R --quiet --vanilla -e "suppressPackageStartupMessages(library(ape)); t <- read.tree('$<'); write.tree(drop.tip(t, t[['tip.label']][grepl('^[0-9.]+$$', t[['tip.label']])]), '$@')"
+
+%.nof__leaves.newick: %.newick
+	R --quiet --vanilla -e "suppressPackageStartupMessages(library(ape)); t <- read.tree('$<'); write.tree(drop.tip(t, t[['tip.label']][grepl('f__', t[['tip.label']])]), '$@')"
+
+%.d__singletons.sed: %.metadata.tsv
+	for d in $$(cut -f 17 $< | cut -f 2 | grep -o 'f__[^;]*;g__.*' | sort -u | sed 's/;g__.*//' | uniq -c | grep ' 1 ' | sed 's/.* 1 //'); do \
+	  cut -f 1,16,17 $< | grep -P '\tt\t' | cut -f 1,3 | grep ";$$d;" | sed "s:\(.*\)\t.*:s/\1/$$d/:"; \
+	done > $@
+
+%.g__singletons.sed: %.metadata.tsv
+	for g in $$(cut -f 17 $< | cut -f 2 | grep -o 'g__[^;]*;s__.*' | sort -u | sed 's/;s__.*//' | uniq -c | grep ' 1 ' | sed 's/.* 1 //'); do \
+	  cut -f 1,16,17 $< | grep -P '\tt\t' | cut -f 1,3 | grep ";$$g;" | sed "s:\(.*\)\t.*:s/\1/$$g/:"; \
+	done > $@
+
+%.family.wip.newick: %.d__singletons.sed %.tree
+	sed -f $^ > $@
+
+%.genus.wip.newick: %.g__singletons.sed %.tree
+	sed -f $^ > $@
