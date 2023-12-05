@@ -9,6 +9,11 @@
 	  cut -f 1,16,17 $< | grep -P '\tt\t' | cut -f 1,3 | grep ";$$d;" | sed "s:\(.*\)\t.*:s/\1/$$d/:"; \
 	done > $@
 
+%.o__singletons.sed: %.metadata.tsv
+	for d in $$(cut -f 17 $< | cut -f 2 | grep -o 'o__[^;]*;f__.*' | sort -u | sed 's/;f__.*//' | uniq -c | grep ' 1 ' | sed 's/.* 1 //'); do \
+	  cut -f 1,16,17 $< | grep -P '\tt\t' | cut -f 1,3 | grep ";$$d;" | sed "s:\(.*\)\t.*:s/\1/$$d/:"; \
+	done > $@
+
 %.f__singletons.sed: %.metadata.tsv
 	for d in $$(cut -f 17 $< | cut -f 2 | grep -o 'f__[^;]*;g__.*' | sort -u | sed 's/;g__.*//' | uniq -c | grep ' 1 ' | sed 's/.* 1 //'); do \
 	  cut -f 1,16,17 $< | grep -P '\tt\t' | cut -f 1,3 | grep ";$$d;" | sed "s:\(.*\)\t.*:s/\1/$$d/:"; \

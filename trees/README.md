@@ -20,6 +20,11 @@ workflow like this:
    replaced with the taxon name. E.g.: `make ar53.family.wip.newick`. Open the
    resulting file in Dendroscope.
 
+   (For subset trees, this requires a correctly named tree file, e.g.
+   actinomycetia_r214.tree and a symlink pointing to a sed file, e.g.
+   actinomycetia_r214.g__singletons.sed pointing to bac120.g__singletons.sed,
+   see `makefile.release_dir`.)
+
 3. Select all nodes for the rank you're subsetting for by searching for its
    prefix, e.g. `f__`.
 
