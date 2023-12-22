@@ -1,6 +1,15 @@
 %.nobsleaves.newick: %.newick
 	R --quiet --vanilla -e "suppressPackageStartupMessages(library(ape)); t <- read.tree('$<'); write.tree(drop.tip(t, t[['tip.label']][grepl('^[0-9.]+$$', t[['tip.label']])]), '$@')"
 
+%.nop__leaves.newick: %.newick
+	R --quiet --vanilla -e "suppressPackageStartupMessages(library(ape)); t <- read.tree('$<'); write.tree(drop.tip(t, t[['tip.label']][grepl('p__', t[['tip.label']])]), '$@')"
+
+%.noc__leaves.newick: %.newick
+	R --quiet --vanilla -e "suppressPackageStartupMessages(library(ape)); t <- read.tree('$<'); write.tree(drop.tip(t, t[['tip.label']][grepl('c__', t[['tip.label']])]), '$@')"
+
+%.noo__leaves.newick: %.newick
+	R --quiet --vanilla -e "suppressPackageStartupMessages(library(ape)); t <- read.tree('$<'); write.tree(drop.tip(t, t[['tip.label']][grepl('o__', t[['tip.label']])]), '$@')"
+
 %.nof__leaves.newick: %.newick
 	R --quiet --vanilla -e "suppressPackageStartupMessages(library(ape)); t <- read.tree('$<'); write.tree(drop.tip(t, t[['tip.label']][grepl('f__', t[['tip.label']])]), '$@')"
 
